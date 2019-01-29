@@ -14,12 +14,15 @@ public class AStarAgent extends ArtificialAgent  {
 
 	@Override
 	protected List<EDirection> think(BoardCompact board) {
+		System.out.println("THINK!");
 		LinkedList<EDirection> path = new LinkedList<EDirection>();
-		Node<BoardCompact, EDirection> node = AStar.search(new SokobanProblem(board), new Stats());
-		while (node != null) {
+		Stats stats = new Stats();
+		Node<BoardCompact, EDirection> node = AStar.search(new SokobanProblem(board), stats);
+		while (node.getLastAction() != null) {
 			path.addFirst(node.getLastAction());
 			node = node.getFather();
 		}
+		System.out.println("Expanded: " + stats.expanded);
 		return path;
 	}
 

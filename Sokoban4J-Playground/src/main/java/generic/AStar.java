@@ -1,48 +1,39 @@
 package generic;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.PriorityQueue;
 
 public class AStar<S, A> {
 	public static <S, A> Node<S, A> search(Problem<S, A> prob, Stats stats) {
 		PriorityQueue<Node<S, A>> frontier = new PriorityQueue<Node<S, A>>(); // frontier
-		ArrayList<Node<S, A>> closed = new ArrayList<Node<S, A>>(); // explored
+		HashMap<S, Node<S, A>> explored = new HashMap<S, Node<S, A>>();
 		Node<S, A> initialNode = new Node<S, A>(prob);
 		frontier.add(initialNode);
-
+		explored.put(initialNode.getState(), initialNode);
 		while (!frontier.isEmpty()) {
+//			System.out.println("Expanded: " + stats.expanded);
 			Node<S, A> currentNode = frontier.poll();
-			System.out.println(currentNode);
-			if (prob.isGoal(currentNode.getState()))
+			if (prob.isGoal(currentNode.getState())) {
+				System.out.println("Solution: " + currentNode);
 				return currentNode;
+			}
 			stats.expanded++;
 			for (Node<S, A> currentChild : currentNode.getListOfChildren(prob)) {
 				double currentCost = currentChild.getPathCost();
-				if (frontier.contains(currentChild)) {
-					double formerCost = getCostfromQueue(frontier, currentChild);
+				boolean isExplored = explored.containsKey(currentChild.getState());
+				boolean isInFrontier = explored.get(currentChild.getState()) != null;
+				if (isExplored && isInFrontier) {
+					double formerCost = explored.get(currentChild.getState()).getPathCost();
 					if (currentCost < formerCost) {
-						frontier.remove(currentChild);
-						frontier.offer(currentChild);
+						explored.get(currentChild.getState()).update(currentChild);
 					}
-				} else if (!closed.contains(currentChild)) {
+				} else if (!isExplored) {
 					frontier.offer(currentChild);
+					explored.put(currentChild.getState(), currentChild);
 				}
 			}
-			closed.add(currentNode);
+			explored.replace(currentNode.getState(), null);
 		}
 		return null;
-	}
-
-	private static <S, A> double getCostfromQueue(PriorityQueue<Node<S, A>> queue, Node<S, A> element) {
-		Iterator<Node<S, A>> iter = queue.iterator();
-		while (iter.hasNext()) {
-			Node<S, A> current = iter.next();
-			if (element.equals(current)) {
-				return current.getPathCost();
-			}
-		}
-		System.err.println("Queue does not contain element!");
-		return -1;
 	}
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class Node<S, A> implements Comparable<Node<S,A>> {
 	private S state;
 	private Node<S, A> father; // parent node, or null if this is the start node
-	private A lastAction; // the action we took to get here from the parent
+	final private A lastAction; // the action we took to get here from the parent
 	private double pathCost;
 	private double estimation;
 	
@@ -15,6 +15,7 @@ public class Node<S, A> implements Comparable<Node<S,A>> {
 	public Node(Problem<S, A> problem) {
 		state = problem.initialState();
 		pathCost = 0;
+		lastAction = null;
 		estimation = problem.estimate(state);
 	}
 	

@@ -109,6 +109,7 @@ public abstract class ArtificialAgent implements IAgent {
 						}
 					}
 					List<EDirection> thinkActions = think(board);
+					System.out.println(thinkActions);
 					synchronized(mutex) {
 						if (ArtificialAgent.this.thread == this) {
 							actions = thinkActions;
