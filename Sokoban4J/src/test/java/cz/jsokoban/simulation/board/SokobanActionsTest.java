@@ -1,10 +1,7 @@
 package cz.jsokoban.simulation.board;
-
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import cz.sokoban4j.simulation.board.oop.Board;
 

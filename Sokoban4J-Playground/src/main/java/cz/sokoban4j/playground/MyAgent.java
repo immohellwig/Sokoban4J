@@ -113,12 +113,12 @@ public class MyAgent extends ArtificialAgent {
 		
 		// VISUALIZED GAME
 		result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0001.s4jl", new MyAgent());   //  5 steps required
-		//result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0002.1.s4jl", new MyAgent()); // 13 steps required
-		//result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0002.2.s4jl", new MyAgent()); // 25 steps required
+//		result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0002.1.s4jl", new MyAgent()); // 13 steps required
+//		result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0002.2.s4jl", new MyAgent()); // 25 steps required
 		//result = Sokoban.playAgentLevel("../Sokoban4J/levels/Easy/level0002.3.s4jl", new MyAgent()); // 37 steps required
 
 		// HEADLESS == SIMULATED-ONLY GAME
-		//result = Sokoban.simAgentLevel("../Sokoban4J/levels/Easy/level0001.s4jl", new MyAgent());
+//		result = Sokoban.simAgentLevel("../Sokoban4J/levels/Easy/level0001.s4jl", new MyAgent());
 		
 		out.println("MyAgent result: " + result.getResult());
 		

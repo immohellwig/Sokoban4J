@@ -105,7 +105,7 @@ public class Evaluate {
 				new String[] {
 					"-l", levels,
 					"-r", "results/results-" + System.currentTimeMillis() + ".csv",
-					"-t", "" + (10*1000),
+					"-t", "" + (60*1000), //TODO Remove Timeout
 					"-a", agentClass.getName(),
 					"-v", "" + visualize, 
 					"-f", "" + maxFail,
@@ -128,9 +128,9 @@ public class Evaluate {
 
 	
 	public static void main(String[] args) {
-		Class agentClass = MyAgent.class;
+		Class agentClass = AStarAgent.class;
 		
-		boolean visualize = false;
+		boolean visualize = true;
 		
 		int maxFail = 1;
 		
