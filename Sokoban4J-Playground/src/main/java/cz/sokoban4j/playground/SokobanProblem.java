@@ -218,6 +218,8 @@ public class SokobanProblem implements Problem<BoardCompact, EDirection> {
 	}
 
 	private boolean isBoxBlockMove(BoardCompact state, EDirection current) {
+		if (CTile.forSomeBox(state.tile(state.playerX + current.dX, state.playerY + current.dY)))
+			return false; //
 		if (CTile.isWall(state.tile(state.playerX + current.dX * 2, state.playerY + current.dY * 2))) {
 			if (CTile.isSomeBox(state.tile(state.playerX + current.dX + current.dY, state.playerY + current.dY + current.dX))
 					&& CTile.isWall(state.tile(state.playerX + 2*current.dX + current.dY, state.playerY + 2*current.dY + current.dX)))
