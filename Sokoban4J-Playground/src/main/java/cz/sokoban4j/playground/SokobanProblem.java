@@ -84,8 +84,6 @@ public class SokobanProblem implements Problem<BoardCompact, EDirection> {
 					continue;
 				boolean isWall = CTile.isWall(currentTile);
 				EDirection directionOfWall = isNextToWall(x, y);
-				if (x == 1 && y == 2)
-					System.out.println("1|2: " + isWall + "$" + directionOfWall);
 				if (!isWall && directionOfWall == null) { // Corner
 					deadTiles.add(new Coordinate(x, y));
 				} else if (!isWall) {
@@ -94,11 +92,12 @@ public class SokobanProblem implements Problem<BoardCompact, EDirection> {
 			}
 		}
 	}
-	
+
 	/**
 	 * Checks if box is stuck in a wall
-	 * @param x x of tile that should be checked
-	 * @param y x of tile that should be checked
+	 * 
+	 * @param x              x of tile that should be checked
+	 * @param y              x of tile that should be checked
 	 * @param checkDirection
 	 * @return
 	 */
@@ -239,24 +238,40 @@ public class SokobanProblem implements Problem<BoardCompact, EDirection> {
 	}
 
 	private boolean isBoxBlockMove(BoardCompact state, EDirection current) {
-		if (CTile.forSomeBox(state.tile(state.playerX + current.dX, state.playerY + current.dY)))
-			return false; //
-		if (CTile.isWall(state.tile(state.playerX + current.dX * 2, state.playerY + current.dY * 2))) {
-			if (CTile.isSomeBox(
-					state.tile(state.playerX + current.dX + current.dY, state.playerY + current.dY + current.dX))
-					&& CTile.isWall(state.tile(state.playerX + 2 * current.dX + current.dY,
-							state.playerY + 2 * current.dY + current.dX)))
-				return true;
-			if (CTile.isSomeBox(
-					state.tile(state.playerX + current.dX - current.dY, state.playerY + current.dY - current.dX))
-					&& CTile.isWall(state.tile(state.playerX + 2 * current.dX - current.dY,
-							state.playerY + 2 * current.dY - current.dX)))
-				return true;
+		BoardCompact newState = state.clone();
+		CPush.getAction(current).perform(newState);
+		int baseTile = newState.tile(newState.playerX + current.dX, newState.playerY + current.dY);
+		int deepTile = newState.tile(newState.playerX + current.dX * 2, newState.playerY + current.dY * 2);
+		int leftTile = newState.tile(newState.playerX + current.dX + current.dY, newState.playerY + current.dY + current.dX);
+		int leftDeepTile = newState.tile(newState.playerX + 2 * current.dX + current.dY,
+				newState.playerY + 2 * current.dY + current.dX);
+		int rightTile = newState.tile(newState.playerX + current.dX - current.dY, newState.playerY + current.dY - current.dX);
+		int rightDeepTile = newState.tile(newState.playerX + 2 * current.dX - current.dY,
+				newState.playerY + 2 * current.dY - current.dX);
+		boolean target1 = CTile.forSomeBox(baseTile) && (CTile.isWall(deepTile) ^ (CTile.forSomeBox(deepTile) && CTile.isSomeBox(deepTile)));
+		boolean target2;
+//		System.out.println("BLOCKMOVE?");
+//		System.out.println(newState);		
+		if (CTile.isWall(deepTile) || CTile.isSomeBox(deepTile)) {
+			if ((CTile.isSomeBox(leftTile) || CTile.isWall(leftTile))
+					&& (CTile.isSomeBox(leftDeepTile) || CTile.isWall(leftDeepTile))) {
+				target2 = (CTile.isWall(leftTile) ^ (CTile.isSomeBox(leftTile) && CTile.forSomeBox(leftTile)))
+						&& (CTile.isWall(leftDeepTile) ^ (CTile.isSomeBox(leftDeepTile) && CTile.forSomeBox(leftDeepTile)));
+			} else if ((CTile.isSomeBox(rightTile) || CTile.isWall(rightTile))
+					&& (CTile.isSomeBox(rightDeepTile) || CTile.isWall(rightDeepTile))) {
+				target2 = (CTile.isWall(rightTile) ^ (CTile.isSomeBox(rightTile) && CTile.forSomeBox(rightTile)))
+						&& (CTile.isWall(rightDeepTile) ^ (CTile.isSomeBox(rightDeepTile) && CTile.forSomeBox(rightDeepTile)));
+			} else {
+//				System.out.println("2x Formation");
+				return false;
+			}
+//			System.out.println("4x Formation");
+//			System.out.println(newState);
+			return !(target2 && target1);
+		} else {
+//			System.out.println("No Formation");
+			return false;
 		}
-//		else if (CTile.isSomeBox(state.tile(state.playerX + current.dX * 2, state.playerY + current.dY * 2))) {
-//			// BOX 4x BLOCK
-//		}
-		return false;
 	}
 
 	@Override
