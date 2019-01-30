@@ -1,0 +1,12 @@
+id;levelFile;levelNumber;agent;result;steps;playTimeMillis
+AStarAgent;level0001.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;5;19
+AStarAgent;level0002.1.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;13;52
+AStarAgent;level0002.2.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;25;110
+AStarAgent;level0002.3.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;37;115
+AStarAgent;level0003.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;60;521
+AStarAgent;level0004.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;69;1868
+AStarAgent;level0005.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;71;211
+AStarAgent;level0006.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;104;2566
+AStarAgent;level0007.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;99;18362
+AStarAgent;level0008.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;61;1497
+AStarAgent;level0009.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;93;7625

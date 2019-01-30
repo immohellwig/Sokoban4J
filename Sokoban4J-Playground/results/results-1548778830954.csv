@@ -1,0 +1,6 @@
+id;levelFile;levelNumber;agent;result;steps;playTimeMillis
+AStarAgent;Jacques_Duthen_Sokogen.sok;77;cz.sokoban4j.playground.AStarAgent;VICTORY;177;56071
+AStarAgent;Jacques_Duthen_Sokogen.sok;75;cz.sokoban4j.playground.AStarAgent;VICTORY;101;40110
+AStarAgent;Aymeric_du_Peloux_1_Minicosmos.sok;23;cz.sokoban4j.playground.AStarAgent;VICTORY;177;46291
+AStarAgent;A.K.K._Informatika.sok;1;cz.sokoban4j.playground.AStarAgent;VICTORY;70;44409
+AStarAgent;Cosmonotes.sok;5;cz.sokoban4j.playground.AStarAgent;TIMEOUT;90;120015

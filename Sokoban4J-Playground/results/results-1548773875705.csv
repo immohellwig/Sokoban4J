@@ -1,0 +1,5 @@
+id;levelFile;levelNumber;agent;result;steps;playTimeMillis
+AStarAgent;Aymeric_du_Peloux_1_Minicosmos.sok;13;cz.sokoban4j.playground.AStarAgent;VICTORY;121;30686
+AStarAgent;Aymeric_du_Peloux_5_Cosmopoly.sok;4;cz.sokoban4j.playground.AStarAgent;VICTORY;158;55560
+AStarAgent;Aymeric_du_Peloux_5_Cosmopoly.sok;17;cz.sokoban4j.playground.AStarAgent;VICTORY;185;56790
+AStarAgent;Blazz2.sok;1;cz.sokoban4j.playground.AStarAgent;TIMEOUT;0;120008

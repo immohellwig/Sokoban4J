@@ -1,0 +1,3 @@
+id;levelFile;levelNumber;agent;result;steps;playTimeMillis
+AStarAgent;Jacques_Duthen_Sokogen.sok;76;cz.sokoban4j.playground.AStarAgent;VICTORY;122;94947
+AStarAgent;Aymeric_du_Peloux_5_Cosmopoly.sok;13;cz.sokoban4j.playground.AStarAgent;TIMEOUT;0;120002

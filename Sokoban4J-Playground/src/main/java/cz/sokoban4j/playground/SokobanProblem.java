@@ -47,7 +47,7 @@ public class SokobanProblem implements Problem<BoardCompact, EDirection> {
 
 		@Override
 		public int hashCode() {
-			return cX * 50 + cY * 50 ^ 2;
+			return cX + cY * 50;
 		}
 
 		@Override
@@ -65,6 +65,14 @@ public class SokobanProblem implements Problem<BoardCompact, EDirection> {
 		initialBoard = board;
 		initDeadTiles();
 		System.out.println("Prunned: " + deadTiles);
+	     System.out.println("dead squares: ");
+	        for (int y = 0 ; y < board.height() ; ++y) {
+	            for (int x = 0 ; x < board.width() ; ++x)
+	                System.out.print(CTile.isWall(board.tile(x, y)) ? '#' : (deadTiles.contains(new Coordinate(x, y)) ? 'X' : '_'));
+	            System.out.println();
+	        }   
+
+
 	}
 
 	private void initDeadTiles() {

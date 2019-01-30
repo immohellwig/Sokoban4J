@@ -1,0 +1,14 @@
+id;levelFile;levelNumber;agent;result;steps;playTimeMillis
+AStarAgent;Aymeric_du_Peloux_3_Nabokosmos.sok;10;cz.sokoban4j.playground.AStarAgent;VICTORY;195;50018
+AStarAgent;Aymeric_du_Peloux_1_Minicosmos.sok;13;cz.sokoban4j.playground.AStarAgent;VICTORY;121;30797
+AStarAgent;Aymeric_du_Peloux_5_Cosmopoly.sok;4;cz.sokoban4j.playground.AStarAgent;VICTORY;158;54928
+AStarAgent;Aymeric_du_Peloux_5_Cosmopoly.sok;17;cz.sokoban4j.playground.AStarAgent;VICTORY;185;56419
+AStarAgent;Blazz2.sok;1;cz.sokoban4j.playground.AStarAgent;TIMEOUT;0;120012
+AStarAgent;Cosmonotes.sok;8;cz.sokoban4j.playground.AStarAgent;VICTORY;220;71482
+AStarAgent;Jacques_Duthen_Sokogen.sok;77;cz.sokoban4j.playground.AStarAgent;VICTORY;177;57238
+AStarAgent;Aymeric_du_Peloux_3_Nabokosmos.sok;3;cz.sokoban4j.playground.AStarAgent;TIMEOUT;0;120004
+AStarAgent;Jacques_Duthen_Sokogen.sok;75;cz.sokoban4j.playground.AStarAgent;TIMEOUT;0;120015
+AStarAgent;Aymeric_du_Peloux_1_Minicosmos.sok;23;cz.sokoban4j.playground.AStarAgent;TIMEOUT;0;120012
+AStarAgent;A.K.K._Informatika.sok;1;cz.sokoban4j.playground.AStarAgent;VICTORY;70;38860
+AStarAgent;Cosmonotes.sok;6;cz.sokoban4j.playground.AStarAgent;TIMEOUT;0;120005
+AStarAgent;Cosmonotes.sok;5;cz.sokoban4j.playground.AStarAgent;TIMEOUT;57;120009

@@ -1,0 +1,14 @@
+id;levelFile;levelNumber;agent;result;steps;playTimeMillis
+AStarAgent;level0001.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;5;1250
+AStarAgent;level0002.1.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;13;3223
+AStarAgent;level0002.2.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;25;6174
+AStarAgent;level0002.3.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;37;9076
+AStarAgent;level0003.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;60;14764
+AStarAgent;level0004.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;69;17020
+AStarAgent;level0005.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;71;17381
+AStarAgent;level0006.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;104;25649
+AStarAgent;level0007.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;99;25244
+AStarAgent;level0008.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;61;14995
+AStarAgent;level0009.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;93;23172
+AStarAgent;Aymeric_du_Peloux_3_Nabokosmos.sok;10;cz.sokoban4j.playground.AStarAgent;VICTORY;195;50101
+AStarAgent;Aymeric_du_Peloux_5_Cosmopoly.sok;18;cz.sokoban4j.playground.AStarAgent;TIMEOUT;175;120003

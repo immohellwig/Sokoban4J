@@ -1,0 +1,2 @@
+id;levelFile;levelNumber;agent;result;steps;playTimeMillis
+AStarAgent;Aymeric_du_Peloux_3_Nabokosmos.sok;10;cz.sokoban4j.playground.AStarAgent;VICTORY;195;49899

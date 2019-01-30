@@ -1,0 +1,2 @@
+id;levelFile;levelNumber;agent;result;steps;playTimeMillis
+AStarAgent;Blazz2.sok;1;cz.sokoban4j.playground.AStarAgent;TIMEOUT;0;120014

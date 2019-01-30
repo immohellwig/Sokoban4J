@@ -1,0 +1,13 @@
+id;levelFile;levelNumber;agent;result;steps;playTimeMillis
+AStarAgent;level0001.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;5;1215
+AStarAgent;level0002.1.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;13;3182
+AStarAgent;level0002.2.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;25;6116
+AStarAgent;level0002.3.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;37;9046
+AStarAgent;level0003.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;60;14881
+AStarAgent;level0004.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;69;17502
+AStarAgent;level0005.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;71;17427
+AStarAgent;level0006.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;104;27657
+AStarAgent;level0007.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;99;27396
+AStarAgent;level0008.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;61;15365
+AStarAgent;level0009.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;93;24082
+AStarAgent;Aymeric_du_Peloux_3_Nabokosmos.sok;10;cz.sokoban4j.playground.AStarAgent;VICTORY;195;54614

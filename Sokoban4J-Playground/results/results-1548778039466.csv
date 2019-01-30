@@ -1,0 +1,2 @@
+id;levelFile;levelNumber;agent;result;steps;playTimeMillis
+AStarAgent;Jacques_Duthen_Sokogen.sok;77;cz.sokoban4j.playground.AStarAgent;VICTORY;177;56307
