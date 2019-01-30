@@ -65,13 +65,13 @@ public class SokobanProblem implements Problem<BoardCompact, EDirection> {
 		initialBoard = board;
 		initDeadTiles();
 		System.out.println("Prunned: " + deadTiles);
-	     System.out.println("dead squares: ");
-	        for (int y = 0 ; y < board.height() ; ++y) {
-	            for (int x = 0 ; x < board.width() ; ++x)
-	                System.out.print(CTile.isWall(board.tile(x, y)) ? '#' : (deadTiles.contains(new Coordinate(x, y)) ? 'X' : '_'));
-	            System.out.println();
-	        }   
-
+		System.out.println("dead squares: ");
+		for (int y = 0; y < board.height(); ++y) {
+			for (int x = 0; x < board.width(); ++x)
+				System.out.print(
+						CTile.isWall(board.tile(x, y)) ? '#' : (deadTiles.contains(new Coordinate(x, y)) ? 'X' : '_'));
+			System.out.println();
+		}
 
 	}
 
@@ -84,20 +84,31 @@ public class SokobanProblem implements Problem<BoardCompact, EDirection> {
 					continue;
 				boolean isWall = CTile.isWall(currentTile);
 				EDirection directionOfWall = isNextToWall(x, y);
+				if (x == 1 && y == 2)
+					System.out.println("1|2: " + isWall + "$" + directionOfWall);
 				if (!isWall && directionOfWall == null) { // Corner
-						deadTiles.add(new Coordinate(x, y));
+					deadTiles.add(new Coordinate(x, y));
 				} else if (!isWall) {
-						isDead(x, y, directionOfWall);
+					isDead(x, y, directionOfWall);
 				}
 			}
 		}
 	}
+	
+	/**
+	 * Checks if box is stuck in a wall
+	 * @param x x of tile that should be checked
+	 * @param y x of tile that should be checked
+	 * @param checkDirection
+	 * @return
+	 */
 
-	private boolean isDead(int x, int y, EDirection freeSpace) {
+	private boolean isDead(int x, int y, EDirection checkDirection) {
 		int currentX = x;
 		int currentY = y;
 		List<Coordinate> potentialDeadTiles = new ArrayList<Coordinate>();
-		switch (freeSpace) {
+		potentialDeadTiles.add(new Coordinate(currentX, currentY));
+		switch (checkDirection) {
 		case DOWN:
 			while (!CTile.isWall(initialBoard.tile(--currentX, currentY))) {
 				potentialDeadTiles.add(new Coordinate(currentX, currentY));
@@ -200,7 +211,8 @@ public class SokobanProblem implements Problem<BoardCompact, EDirection> {
 			vertCounter++;
 		}
 		if (counter == 2 && (vertCounter == 2 ^ horiCounter == 2))
-			return EDirection.NONE;
+			return EDirection.NONE; // May ignore squares that are dead, but those can be reached over dead squares
+									// so that does not make difference
 		if (counter > 1)
 			return null;
 		return dir;
@@ -216,7 +228,8 @@ public class SokobanProblem implements Problem<BoardCompact, EDirection> {
 		List<EDirection> result = new ArrayList<EDirection>();
 		for (EDirection current : EDirection.arrows()) {
 			Coordinate target = new Coordinate(state.playerX + current.dX, state.playerY + current.dY);
-			if (CPush.isPushPossible(state, state.playerX, state.playerY, current) && !deadTiles.contains(target) && !isBoxBlockMove(state, current)) {
+			if (CPush.isPushPossible(state, state.playerX, state.playerY, current) && !deadTiles.contains(target)
+					&& !isBoxBlockMove(state, current)) {
 				result.add(current);
 			} else if (CTile.isFree(state.tile(target.cX, target.cY))) {
 				result.add(current);
@@ -229,13 +242,17 @@ public class SokobanProblem implements Problem<BoardCompact, EDirection> {
 		if (CTile.forSomeBox(state.tile(state.playerX + current.dX, state.playerY + current.dY)))
 			return false; //
 		if (CTile.isWall(state.tile(state.playerX + current.dX * 2, state.playerY + current.dY * 2))) {
-			if (CTile.isSomeBox(state.tile(state.playerX + current.dX + current.dY, state.playerY + current.dY + current.dX))
-					&& CTile.isWall(state.tile(state.playerX + 2*current.dX + current.dY, state.playerY + 2*current.dY + current.dX)))
+			if (CTile.isSomeBox(
+					state.tile(state.playerX + current.dX + current.dY, state.playerY + current.dY + current.dX))
+					&& CTile.isWall(state.tile(state.playerX + 2 * current.dX + current.dY,
+							state.playerY + 2 * current.dY + current.dX)))
 				return true;
-			if (CTile.isSomeBox(state.tile(state.playerX + current.dX - current.dY, state.playerY + current.dY - current.dX))
-					&& CTile.isWall(state.tile(state.playerX + 2*current.dX - current.dY, state.playerY + 2*current.dY - current.dX)))
+			if (CTile.isSomeBox(
+					state.tile(state.playerX + current.dX - current.dY, state.playerY + current.dY - current.dX))
+					&& CTile.isWall(state.tile(state.playerX + 2 * current.dX - current.dY,
+							state.playerY + 2 * current.dY - current.dX)))
 				return true;
-		} 
+		}
 //		else if (CTile.isSomeBox(state.tile(state.playerX + current.dX * 2, state.playerY + current.dY * 2))) {
 //			// BOX 4x BLOCK
 //		}

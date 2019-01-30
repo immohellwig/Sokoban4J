@@ -11,7 +11,6 @@ public class AStar<S, A> {
 		frontier.add(initialNode);
 		explored.put(initialNode.getState(), initialNode);
 		while (!frontier.isEmpty()) {
-//			System.out.println("Expanded: " + stats.expanded);
 			Node<S, A> currentNode = frontier.poll();
 			if (prob.isGoal(currentNode.getState())) {
 				System.out.println("Solution: " + currentNode);
@@ -25,7 +24,8 @@ public class AStar<S, A> {
 				if (isExplored && isInFrontier) {
 					double formerCost = explored.get(currentChild.getState()).getPathCost();
 					if (currentCost < formerCost) {
-						explored.get(currentChild.getState()).update(currentChild);
+						frontier.remove(currentChild);
+						frontier.offer(currentChild);
 					}
 				} else if (!isExplored) {
 					frontier.offer(currentChild);

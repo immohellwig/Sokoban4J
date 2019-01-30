@@ -1,0 +1,3 @@
+id;levelFile;levelNumber;agent;result;steps;playTimeMillis
+AStarAgent;level0001.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;5;1214
+AStarAgent;level0002.1.s4jl;0;cz.sokoban4j.playground.AStarAgent;VICTORY;13;3229

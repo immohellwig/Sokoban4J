@@ -72,11 +72,6 @@ public class Node<S, A> implements Comparable<Node<S,A>> {
 	public int compareTo(Node<S, A> node) {
 		return Double.compare(getCombinedCost(), node.getCombinedCost());
 	}
-
-	public void update(Node<S, A> currentChild) {
-		this.pathCost = currentChild.getPathCost();
-		this.father = currentChild.getFather();
-	}
 	
 	@Override
 	public String toString() {
